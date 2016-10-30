@@ -8,7 +8,13 @@
 
 *This is a fork from [conventional-changelog-angular](https://github.com/conventional-changelog/conventional-changelog-angular).*
 
+### install with npm
 
+`npm install --save-dev conventional-changelog-angular-emoji`
+
+### install with yarn
+
+`yarn add --dev conventional-changelog-angular-emoji`
 
 ### Preview:
 
@@ -29,6 +35,12 @@ refactor: :package: Code Refactoring
 test(xxx): :rotating_light: Tests
     
 chore(xxx): :ticket: Chores
+
+
+### Video Course on [egghead.io](https://egghead.io)
+
+- [Writing conventional commits with commitizen](https://egghead.io/lessons/javascript-how-to-write-a-javascript-library-writing-conventional-commits-with-commitizen)
+- [Committing a new feature with commitizen](https://egghead.io/lessons/javascript-how-to-write-a-javascript-library-committing-a-new-feature-with-commitizen)
 
 
 ### Contact / Social Media

@@ -32,7 +32,7 @@ betterThanBefore.setups([
     gitDummyCommit(['feat(awesome): fix #88']);
   },
   function() {
-    gitDummyCommit(['feat(awesome): issue brought up by @bcoe! on Friday']);
+    gitDummyCommit(['feat(awesome): issue brought up by @ellerbrock! on Friday']);
   },
   function() {
     gitDummyCommit(['docs(readme): make it clear', 'BREAKING CHANGE: The Change is huge.']);
@@ -51,11 +51,11 @@ betterThanBefore.setups([
 ]);
 
 
-describe('angular preset', function() {
+describe('angular-emoji preset', function() {
 
-  // look guys thats the way to get a test running again without wasting time :D
+  // this is a fork so will check to get this working later on ...
 
-  /*
+
   it('should work if there is no semver tag', function(done) {
     preparing(1);
 
@@ -71,7 +71,7 @@ describe('angular preset', function() {
         expect(chunk).to.include('amazing new module');
         expect(chunk).to.include('**compile:** avoid a bug');
         expect(chunk).to.include('make it faster');
-        expect(chunk).to.include(', closes [#1](https://github.com/conventional-changelog/conventional-changelog-angular/issues/1) [#2](https://github.com/conventional-changelog/conventional-changelog-angular/issues/2)');
+        expect(chunk).to.include(', closes [#1](https://github.com/ellerbrock/conventional-changelog-angular-emoji/issues/1) [#2](https://github.com/ellerbrock/conventional-changelog-angular-emoji/issues/2)');
         expect(chunk).to.include('Not backward compatible.');
         expect(chunk).to.include('**compile:** The Change is huge.');
         expect(chunk).to.include('Features');
@@ -104,7 +104,7 @@ describe('angular preset', function() {
       })
       .pipe(through(function(chunk) {
         chunk = chunk.toString();
-        expect(chunk).to.include('[#133](https://github.com/conventional-changelog/conventional-changelog-angular/issues/133)');
+        expect(chunk).to.include('[#133](https://github.com/ellerbrock/conventional-changelog-angular-emoji/issues/133)');
         done();
       }));
   });
@@ -120,12 +120,12 @@ describe('angular preset', function() {
       })
       .pipe(through(function(chunk) {
         chunk = chunk.toString();
-        expect(chunk).to.include('[#88](https://github.com/conventional-changelog/conventional-changelog-angular/issues/88)');
-        expect(chunk).to.not.include('closes [#88](https://github.com/conventional-changelog/conventional-changelog-angular/issues/88)');
+        expect(chunk).to.include('[#88](https://github.com/ellerbrock/conventional-changelog-angular-emoji/issues/88)');
+        expect(chunk).to.not.include('closes [#88](https://github.com/ellerbrock/conventional-changelog-angular-emoji/issues/88)');
         done();
       }));
   });
-  */
+
 
   it('should replace @username with GitHub user URL', function(done) {
     preparing(4);
@@ -138,7 +138,7 @@ describe('angular preset', function() {
       })
       .pipe(through(function(chunk) {
         chunk = chunk.toString();
-        expect(chunk).to.include('[@bcoe](https://github.com/bcoe)');
+        expect(chunk).to.include('[@ellerbrock](https://github.com/ellerbrock)');
         done();
       }));
   });
