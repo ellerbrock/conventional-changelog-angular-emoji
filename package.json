@@ -1,8 +1,14 @@
 {
   "name": "conventional-changelog-angular-emoji",
-  "version": "1.3.0",
   "description": "conventional-changelog angular-emoji preset",
+  "version": "1.3.0",
   "main": "index.js",
+  "author": "Maik Ellerbrock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ellerbrock/conventional-changelog-angular-emoji.git/issues"
+  },
+  "homepage": "https://github.com/ellerbrock/conventional-changelog-angular-emoji.git#readme",
   "scripts": {
     "coverage": "istanbul cover -x test.js _mocha -- -R spec --timeout 30000 && rm -rf ./coverage",
     "lint": "jshint *.js --exclude node_modules && jscs *.js",
@@ -17,12 +23,10 @@
     "angular-emoji",
     "preset"
   ],
-  "author": "Maik Ellerbrock",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ellerbrock/conventional-changelog-angular-emoji.git/issues"
-  },
-  "homepage": "https://github.com/ellerbrock/conventional-changelog-angular-emoji.git#readme",
+  "files": [
+    "index.js",
+    "templates"
+  ],
   "devDependencies": {
     "better-than-before": "^1.0.0",
     "chai": "^3.4.1",
