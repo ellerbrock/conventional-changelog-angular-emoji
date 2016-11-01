@@ -20,8 +20,7 @@
 
 Update commit convention from [Angular 1x](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type) to [Angular 2x](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type).
 
-- add: build, ci
-- remove: revert
+- added: build, ci
 
 ### Preview:
 
@@ -44,6 +43,8 @@ build(xxx): :construction_worker: Build
 ci(xxx): :computer: Continuous Integration
     
 chore(xxx): :ticket: Chores
+
+revert(xxx): :back: Reverts
 
 
 ### Video Course on [egghead.io](https://egghead.io)

@@ -49,7 +49,6 @@ var writerOpts = {
 
     // Angular 2 commit conventions
     // Link: https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type
-    // removed: revert
     // added: build, ci
 
     if (commit.type === 'feat') {
@@ -72,6 +71,8 @@ var writerOpts = {
       commit.type = ':computer: Continuous Integration';
     } else if (commit.type === 'chore') {
       commit.type = ':ticket: Chores';
+    } else if (commit.type === 'revert') {
+      commit.type = ':back: Reverts';
     } else if (discard) {
       return;
     }
