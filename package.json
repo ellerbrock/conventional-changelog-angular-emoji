@@ -1,7 +1,7 @@
 {
   "name": "conventional-changelog-angular-emoji",
   "description": "conventional-changelog angular-emoji preset",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "index.js",
   "author": "Maik Ellerbrock",
   "license": "ISC",
@@ -31,11 +31,6 @@
     "index.js",
     "templates"
   ],
-  "config": {
-    "ghooks": {
-      "pre-commit": "npm run lint && npm test"
-    }
-  },
   "devDependencies": {
     "better-than-before": "^1.0.0",
     "chai": "^3.4.1",

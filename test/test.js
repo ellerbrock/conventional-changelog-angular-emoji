@@ -22,7 +22,8 @@ betterThanBefore.setups([
     gitDummyCommit(['feat: amazing new module', 'BREAKING CHANGE: Not backward compatible.']);
     gitDummyCommit(['fix(compile): avoid a bug', 'BREAKING CHANGE: The Change is huge.']);
     gitDummyCommit(['perf(ngOptions): make it faster', ' closes #1, #2']);
-    gitDummyCommit('revert(ngOptions): bad commit');
+    gitDummyCommit('build(npm): update dependencies');
+    gitDummyCommit('ci(travis): update travis configuration');
     gitDummyCommit('fix(*): oops');
   },
   function() {
@@ -53,9 +54,6 @@ betterThanBefore.setups([
 
 describe('angular-emoji preset', function() {
 
-  // this is a fork so will check to get this working later on ...
-
-
   it('should work if there is no semver tag', function(done) {
     preparing(1);
 
@@ -77,11 +75,10 @@ describe('angular-emoji preset', function() {
         expect(chunk).to.include('Features');
         expect(chunk).to.include('Bug Fixes');
         expect(chunk).to.include('Performance Improvements');
-        expect(chunk).to.include('Reverts');
-        expect(chunk).to.include('bad commit');
+        expect(chunk).to.include('update dependencies');
+        expect(chunk).to.include('update travis configuration');
         expect(chunk).to.include('BREAKING CHANGES');
 
-        expect(chunk).to.not.include('first commit');
         expect(chunk).to.not.include('feat');
         expect(chunk).to.not.include('fix');
         expect(chunk).to.not.include('perf');

@@ -16,26 +16,63 @@
 
 `yarn add --dev conventional-changelog-angular-emoji`
 
+
+### Update Information:
+
+Update commit convention from [Angular 1x](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type) to [Angular 2x](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type).
+
+- add: build, ci
+- remove: revert
+
 ### Preview:
 
 feat(xxx): :sparkles: Features your commit message
 	
 fix(xxx): :bug: Bug Fixes
 	
-perf(xxx): :rocket: Performance Improvements
-    
-revert(xxx): :back: Reverts
-
 docs(xxx): :book: Documentation
-    
+
 style: :gem: Styles
-    
+
 refactor: :package: Code Refactoring
-    
+
+perf(xxx): :rocket: Performance Improvements
+
 test(xxx): :rotating_light: Tests
+
+build(xxx): :construction_worker: Build
+
+ci(xxx): :computer: Continuous Integration
     
 chore(xxx): :ticket: Chores
 
+
+```
+
+    if (commit.type === 'feat') {
+      commit.type = ':sparkles: Features';
+    } else if (commit.type === 'fix') {
+      commit.type = ':bug: Bug Fixes';
+    } else if (commit.type === 'docs') {
+      commit.type = ':book: Documentation';
+    } else if (commit.type === 'style') {
+      commit.type = ':gem: Styles';
+    } else if (commit.type === 'refactor') {
+      commit.type = ':package: Code Refactoring';
+    } else if (commit.type === 'perf') {
+      commit.type = ':rocket: Performance Improvements';
+    } else if (commit.type === 'test') {
+      commit.type = ':rotating_light: Tests';
+    } else if (commit.type === 'build') {
+      commit.type = ':construction_worker: Build';
+    } else if (commit.type === 'ci') {
+      commit.type = ':computer: Continuous Integration';
+    } else if (commit.type === 'chore') {
+      commit.type = ':ticket: Chores';
+    } else if (discard) {
+      return;
+    }
+```
 
 ### Video Course on [egghead.io](https://egghead.io)
 

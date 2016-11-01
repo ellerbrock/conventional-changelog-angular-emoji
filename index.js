@@ -47,26 +47,33 @@ var writerOpts = {
       discard = false;
     });
 
+    // Angular 2 commit conventions
+    // Link: https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type
+    // removed: revert
+    // added: build, ci
+
     if (commit.type === 'feat') {
       commit.type = ':sparkles: Features';
     } else if (commit.type === 'fix') {
       commit.type = ':bug: Bug Fixes';
-    } else if (commit.type === 'perf') {
-      commit.type = ':rocket: Performance Improvements';
-    } else if (commit.type === 'revert') {
-      commit.type = ':back: Reverts';
-    } else if (discard) {
-      return;
     } else if (commit.type === 'docs') {
       commit.type = ':book: Documentation';
     } else if (commit.type === 'style') {
       commit.type = ':gem: Styles';
     } else if (commit.type === 'refactor') {
       commit.type = ':package: Code Refactoring';
+    } else if (commit.type === 'perf') {
+      commit.type = ':rocket: Performance Improvements';
     } else if (commit.type === 'test') {
       commit.type = ':rotating_light: Tests';
+    } else if (commit.type === 'build') {
+      commit.type = ':construction_worker: Build';
+    } else if (commit.type === 'ci') {
+      commit.type = ':computer: Continuous Integration';
     } else if (commit.type === 'chore') {
       commit.type = ':ticket: Chores';
+    } else if (discard) {
+      return;
     }
 
     if (commit.scope === '*') {
