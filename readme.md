@@ -1,4 +1,4 @@
-# conventional-changelog-angular-emoji
+# [conventional-changelog-angular-emoji](https://www.npmjs.com/package/conventional-changelog-angular-emoji)
 
 > [conventional-changelog](https://github.com/ajoslin/conventional-changelog) angular-emoji preset
 
@@ -15,7 +15,6 @@
 ### install with yarn
 
 `yarn add --dev conventional-changelog-angular-emoji`
-
 
 ### Update Information:
 
@@ -47,45 +46,16 @@ ci(xxx): :computer: Continuous Integration
 chore(xxx): :ticket: Chores
 
 
-```
-
-    if (commit.type === 'feat') {
-      commit.type = ':sparkles: Features';
-    } else if (commit.type === 'fix') {
-      commit.type = ':bug: Bug Fixes';
-    } else if (commit.type === 'docs') {
-      commit.type = ':book: Documentation';
-    } else if (commit.type === 'style') {
-      commit.type = ':gem: Styles';
-    } else if (commit.type === 'refactor') {
-      commit.type = ':package: Code Refactoring';
-    } else if (commit.type === 'perf') {
-      commit.type = ':rocket: Performance Improvements';
-    } else if (commit.type === 'test') {
-      commit.type = ':rotating_light: Tests';
-    } else if (commit.type === 'build') {
-      commit.type = ':construction_worker: Build';
-    } else if (commit.type === 'ci') {
-      commit.type = ':computer: Continuous Integration';
-    } else if (commit.type === 'chore') {
-      commit.type = ':ticket: Chores';
-    } else if (discard) {
-      return;
-    }
-```
-
 ### Video Course on [egghead.io](https://egghead.io)
 
 - [Writing conventional commits with commitizen](https://egghead.io/lessons/javascript-how-to-write-a-javascript-library-writing-conventional-commits-with-commitizen)
 - [Committing a new feature with commitizen](https://egghead.io/lessons/javascript-how-to-write-a-javascript-library-committing-a-new-feature-with-commitizen)
-
 
 ### Contact / Social Media
 
 _Get the latest News about Web Development, Open Source, Tooling, Server & Security_
 
 [![Twitter](https://github.frapsoft.com/social/twitter.png)](https://twitter.com/frapsoft/)[![Facebook](https://github.frapsoft.com/social/facebook.png)](https://www.facebook.com/frapsoft/)[![Google+](https://github.frapsoft.com/social/google-plus.png)](https://plus.google.com/116540931335841862774)[![Gitter](https://github.frapsoft.com/social/gitter.png)](https://gitter.im/frapsoft/frapsoft/)[![Github](https://github.frapsoft.com/social/github.png)](https://github.com/ellerbrock/)
-
 
 ### License
 
