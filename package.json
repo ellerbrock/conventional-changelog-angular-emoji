@@ -3,7 +3,7 @@
   "description": "conventional-changelog angular-emoji preset",
   "version": "0.2.1",
   "main": "index.js",
-  "author": "Maik Ellerbrock",
+  "author": "Maik Ellerbrock <opensource@frapsoft.com> (https://github.com/ellerbrock)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ellerbrock/conventional-changelog-angular-emoji.git/issues"
