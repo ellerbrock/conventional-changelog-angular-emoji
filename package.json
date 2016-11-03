@@ -2,7 +2,7 @@
   "name": "conventional-changelog-angular-emoji",
   "description": "conventional-changelog angular-emoji preset",
   "version": "0.2.2",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": "Maik Ellerbrock <opensource@frapsoft.com> (https://github.com/ellerbrock)",
   "license": "ISC",
   "bugs": {
@@ -11,7 +11,7 @@
   "homepage": "https://github.com/ellerbrock/conventional-changelog-angular-emoji.git#readme",
   "scripts": {
     "coverage": "istanbul cover -x test.js _mocha -- -R spec --timeout 30000 && rm -rf ./coverage",
-    "lint": "jshint *.js --exclude node_modules && jscs *.js",
+    "lint": "jshint src/*.js --exclude node_modules && jscs src/*.js",
     "test": "mocha --timeout 30000 && npm run-script lint",
     "pre-release": "npm run lint && npm test && npm run coverage",
     "release": "standard-version",
@@ -28,8 +28,7 @@
     "preset"
   ],
   "files": [
-    "index.js",
-    "templates"
+    "src"
   ],
   "devDependencies": {
     "better-than-before": "^1.0.0",

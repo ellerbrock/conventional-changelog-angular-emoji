@@ -1,7 +1,7 @@
 'use strict';
 var execSync = require('child_process').execSync;
 var conventionalChangelogCore = require('conventional-changelog-core');
-var preset = require('../');
+var preset = require('../src');
 var expect = require('chai').expect;
 var gitDummyCommit = require('git-dummy-commit');
 var shell = require('shelljs');
