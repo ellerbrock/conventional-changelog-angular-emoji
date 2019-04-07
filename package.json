@@ -42,7 +42,7 @@
     "istanbul": "^0.4.5",
     "jscs": "^3.0.7",
     "jshint": "^2.9.4",
-    "mocha": "*",
+    "mocha": ">=6.1.0",
     "shelljs": "^0.7.5",
     "standard-version": "4.2.0",
     "through2": "^2.0.3"
