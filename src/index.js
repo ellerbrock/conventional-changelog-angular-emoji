@@ -16,7 +16,7 @@ try {
 }
 
 var parserOpts = {
-  headerPattern: /^(\w*)(?:\((.*)\))?\: (.*)$/,
+  headerPattern: /^(?::\w*:\s)?(\w*)(?:\((.*)\))?\: (.*)$/,
   headerCorrespondence: [
     'type',
     'scope',
