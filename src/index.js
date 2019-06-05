@@ -89,8 +89,6 @@ function getWriterOpts(config) {
         commit.hash = commit.hash.substring(0, 7);
       }
 
-      console.log(commit)
-
       if (typeof commit.subject === 'string') {
         commit.subject = commit.subject.replace(/#([0-9]+)/g, (_, issue) => {
             issues.push(issue)
