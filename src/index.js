@@ -5,6 +5,8 @@ const readFile = Q.denodeify(require('fs').readFile);
 const resolve = require('path').resolve;
 const path = require('path');
 
+const recommendedBumpOpts = require(`./conventional-recommended-bump`)
+
 let pkgJson = {};
 
 try {
@@ -87,6 +89,8 @@ function getWriterOpts(config) {
         commit.hash = commit.hash.substring(0, 7);
       }
 
+      console.log(commit)
+
       if (typeof commit.subject === 'string') {
         commit.subject = commit.subject.replace(/#([0-9]+)/g, (_, issue) => {
             issues.push(issue)
@@ -120,7 +124,7 @@ function getWriterOpts(config) {
       }
 
       // remove references that already appear in the subject
-      commit.references = commit.references.filter(function(reference) {
+      commit.references = commit.references.filter((reference) => {
         if (issues.indexOf(reference.issue) === -1) {
           return true;
         }
@@ -179,8 +183,9 @@ module.exports = function(config) {
      writerOpts.footerPartial = footer
 
     return {
-      parserOpts: parserOpts,
-      writerOpts: writerOpts
+      parserOpts,
+      writerOpts,
+      recommendedBumpOpts
     }
   })
 }

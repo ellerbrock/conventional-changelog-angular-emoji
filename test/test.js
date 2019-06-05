@@ -95,7 +95,7 @@ describe('angular-emoji preset', function() {
       }));
   });
 
-  it('should replace #[0-9]+ with GitHub issue URL', function(done) {
+  it('should replace #[0-9]+ with issue URL', function(done) {
     preparing(2);
 
     conventionalChangelogCore({
@@ -205,6 +205,8 @@ describe('angular-emoji preset', function() {
         chunk = chunk.toString();
 
         expect(chunk).to.include('Also works :)');
+
+        console.log(chunk)
 
         done();
       }));
