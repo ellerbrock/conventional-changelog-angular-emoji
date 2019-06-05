@@ -16,8 +16,9 @@ try {
 }
 
 var parserOpts = {
-  headerPattern: /^(\w*)(?:\((.*)\))?\: (.*)$/,
+  headerPattern: /^(?::\w*:\s)?(\w*)(?:\((.*)\))?\: (.*)$/,
   headerCorrespondence: [
+    'emoji',
     'type',
     'scope',
     'subject'
