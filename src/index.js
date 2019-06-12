@@ -9,8 +9,6 @@ const recommendedBumpOpts = require(`./conventional-recommended-bump`)
 
 let pkgJson = {};
 
-console.log('#### CHANGELOG ####')
-
 try {
   pkgJson = require(path.resolve(
     process.cwd(),
