@@ -9,6 +9,8 @@ const recommendedBumpOpts = require(`./conventional-recommended-bump`)
 
 let pkgJson = {};
 
+console.log('#### CHANGELOG ####')
+
 try {
   pkgJson = require(path.resolve(
     process.cwd(),
@@ -77,6 +79,8 @@ function getWriterOpts(config) {
         commit.type = ':ticket: Chores';
       } else if (commit.type === 'revert') {
         commit.type = ':back: Reverts';
+      } else if (commit.type === null) {
+        commit.type = ':poop: No Type'
       } else if (discard) {
         return;
       }
