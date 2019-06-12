@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/ellerbrock/conventional-changelog-angular-emoji.svg?branch=master)](https://travis-ci.org/ellerbrock/conventional-changelog-angular-emoji) [![Javascript](https://badges.frapsoft.com/javascript/code/javascript.svg?v=100)](https://github.com/ellerbrock/javascript-badges/) [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://github.com/ellerbrock/open-source-badges/) [![Gitter Chat](https://badges.gitter.im/frapsoft/frapsoft.svg)](https://gitter.im/frapsoft/frapsoft/)
 
-## [Angular Git Commit Guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type) with Emojis 
+## [Angular Git Commit Guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type) with Emojis
 
 *This is a fork from [conventional-changelog-angular](https://github.com/conventional-changelog/conventional-changelog-angular).*
 
@@ -18,16 +18,20 @@
 
 ### Update Information:
 
-Update commit convention from [Angular 1x](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type) to [Angular 2x](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type).
+Use emojis in commit messages will now generate the changelog correctly.
 
-- added: build, ci
+- added: emoji support
+
+Pass additional configuration to the writer.
+
+- added: userUrlFormat, issueUrlFormat, commitUrlFormat, compareUrlFormat
 
 ### Preview:
 
 feat(xxx): :sparkles: Features your commit message
-	
+
 fix(xxx): :bug: Bug Fixes
-	
+
 docs(xxx): :book: Documentation
 
 style: :gem: Styles
@@ -41,7 +45,7 @@ test(xxx): :rotating_light: Tests
 build(xxx): :construction_worker: Build
 
 ci(xxx): :computer: Continuous Integration
-    
+
 chore(xxx): :ticket: Chores
 
 revert(xxx): :back: Reverts

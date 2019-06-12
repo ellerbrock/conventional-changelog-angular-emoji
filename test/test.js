@@ -18,36 +18,36 @@ betterThanBefore.setups([
     shell.mkdir('git-templates');
     shell.exec('git init --template=./git-templates');
 
-    gitDummyCommit('chore: first commit');
-    gitDummyCommit(['feat: amazing new module', 'BREAKING CHANGE: Not backward compatible.']);
-    gitDummyCommit(['fix(compile): avoid a bug', 'BREAKING CHANGE: The Change is huge.']);
-    gitDummyCommit(['perf(ngOptions): make it faster', ' closes #1, #2']);
-    gitDummyCommit('build(npm): update dependencies');
-    gitDummyCommit('ci(travis): update travis configuration');
-    gitDummyCommit('fix(*): oops');
+    gitDummyCommit(':ticket: chore: first commit');
+    gitDummyCommit([':sparkles: feat: amazing new module', 'BREAKING CHANGE: Not backward compatible.']);
+    gitDummyCommit([':bug: fix(compile): avoid a bug', 'BREAKING CHANGE: The Change is huge.']);
+    gitDummyCommit([':rocket: perf(ngOptions): make it faster', ' closes #1, #2']);
+    gitDummyCommit(':construction_worker: build(npm): update dependencies');
+    gitDummyCommit(':computer: ci(travis): update travis configuration');
+    gitDummyCommit(':bug: fix(*): oops');
   },
   function() {
-    gitDummyCommit(['feat(awesome): addresses the issue brought up in #133']);
+    gitDummyCommit([':sparkles: feat(awesome): addresses the issue brought up in #133']);
   },
   function() {
-    gitDummyCommit(['feat(awesome): fix #88']);
+    gitDummyCommit([':sparkles: feat(awesome): fix #88']);
   },
   function() {
-    gitDummyCommit(['feat(awesome): issue brought up by @ellerbrock! on Friday']);
+    gitDummyCommit([':sparkles: feat(awesome): issue brought up by @ellerbrock! on Friday']);
   },
   function() {
-    gitDummyCommit(['docs(readme): make it clear', 'BREAKING CHANGE: The Change is huge.']);
-    gitDummyCommit(['style(whitespace): make it easier to read', 'BREAKING CHANGE: The Change is huge.']);
-    gitDummyCommit(['refactor(code): change a lot of code', 'BREAKING CHANGE: The Change is huge.']);
-    gitDummyCommit(['test(*): more tests', 'BREAKING CHANGE: The Change is huge.']);
-    gitDummyCommit(['chore(deps): bump', 'BREAKING CHANGE: The Change is huge.']);
+    gitDummyCommit([':book: docs(readme): make it clear', 'BREAKING CHANGE: The Change is huge.']);
+    gitDummyCommit([':gem: style(whitespace): make it easier to read', 'BREAKING CHANGE: The Change is huge.']);
+    gitDummyCommit([':package: refactor(code): change a lot of code', 'BREAKING CHANGE: The Change is huge.']);
+    gitDummyCommit([':rotating_light: test(*): more tests', 'BREAKING CHANGE: The Change is huge.']);
+    gitDummyCommit([':ticket: chore(deps): bump', 'BREAKING CHANGE: The Change is huge.']);
   },
   function() {
-    gitDummyCommit(['feat(deps): bump', 'BREAKING CHANGES: Also works :)']);
+    gitDummyCommit([':sparkles: feat(deps): bump', 'BREAKING CHANGES: Also works :)']);
   },
   function() {
     shell.exec('git tag v1.0.0');
-    gitDummyCommit('feat: some more features');
+    gitDummyCommit(':sparkles: feat: some more features');
   }
 ]);
 
@@ -58,7 +58,12 @@ describe('angular-emoji preset', function() {
     preparing(1);
 
     conventionalChangelogCore({
-      config: preset
+      config: preset({
+        "userUrlFormat": "https://test.com/{{user}}",
+        "issueUrlFormat": "https://test.com/issues/{{id}}",
+        "commitUrlFormat": "https://test.com/commit/{{hash}}",
+        "compareUrlFormat": "https://test.com/compare/{{previousTag}}...{{currentTag}}"
+      }),
     })
       .on('error', function(err) {
         done(err);
@@ -69,7 +74,7 @@ describe('angular-emoji preset', function() {
         expect(chunk).to.include('amazing new module');
         expect(chunk).to.include('**compile:** avoid a bug');
         expect(chunk).to.include('make it faster');
-        expect(chunk).to.include(', closes [#1](https://github.com/ellerbrock/conventional-changelog-angular-emoji/issues/1) [#2](https://github.com/ellerbrock/conventional-changelog-angular-emoji/issues/2)');
+        expect(chunk).to.include(', closes [#1](https://test.com/issues/1) [#2](https://test.com/issues/2)');
         expect(chunk).to.include('Not backward compatible.');
         expect(chunk).to.include('**compile:** The Change is huge.');
         expect(chunk).to.include('Features');
@@ -90,18 +95,23 @@ describe('angular-emoji preset', function() {
       }));
   });
 
-  it('should replace #[0-9]+ with GitHub issue URL', function(done) {
+  it('should replace #[0-9]+ with issue URL', function(done) {
     preparing(2);
 
     conventionalChangelogCore({
-      config: preset
+      config: preset({
+        "userUrlFormat": "https://test.com/{{user}}",
+        "issueUrlFormat": "https://test.com/issues/{{id}}",
+        "commitUrlFormat": "https://test.com/commit/{{hash}}",
+        "compareUrlFormat": "https://test.com/compare/{{previousTag}}...{{currentTag}}"
+      }),
     })
       .on('error', function(err) {
         done(err);
       })
       .pipe(through(function(chunk) {
         chunk = chunk.toString();
-        expect(chunk).to.include('[#133](https://github.com/ellerbrock/conventional-changelog-angular-emoji/issues/133)');
+        expect(chunk).to.include('[#133](https://test.com/issues/133)');
         done();
       }));
   });
@@ -110,32 +120,42 @@ describe('angular-emoji preset', function() {
     preparing(3);
 
     conventionalChangelogCore({
-      config: preset
+      config: preset({
+        "userUrlFormat": "https://test.com/{{user}}",
+        "issueUrlFormat": "https://test.com/issues/{{id}}",
+        "commitUrlFormat": "https://test.com/commit/{{hash}}",
+        "compareUrlFormat": "https://test.com/compare/{{previousTag}}...{{currentTag}}"
+      }),
     })
       .on('error', function(err) {
         done(err);
       })
       .pipe(through(function(chunk) {
         chunk = chunk.toString();
-        expect(chunk).to.include('[#88](https://github.com/ellerbrock/conventional-changelog-angular-emoji/issues/88)');
-        expect(chunk).to.not.include('closes [#88](https://github.com/ellerbrock/conventional-changelog-angular-emoji/issues/88)');
+        expect(chunk).to.include('[#88](https://test.com/issues/88)');
+        expect(chunk).to.not.include('closes [#88](https://test.com/issues/88)');
         done();
       }));
   });
 
 
-  it('should replace @username with GitHub user URL', function(done) {
+  it('should replace @username with template user URL', function(done) {
     preparing(4);
 
     conventionalChangelogCore({
-      config: preset
+      config: preset({
+        "userUrlFormat": "https://test.com/{{user}}",
+        "issueUrlFormat": "https://test.com/issues/{{id}}",
+        "commitUrlFormat": "https://test.com/commit/{{hash}}",
+        "compareUrlFormat": "https://test.com/compare/{{previousTag}}...{{currentTag}}"
+      }),
     })
       .on('error', function(err) {
         done(err);
       })
       .pipe(through(function(chunk) {
         chunk = chunk.toString();
-        expect(chunk).to.include('[@ellerbrock](https://github.com/ellerbrock)');
+        expect(chunk).to.include('[@ellerbrock](https://test.com/ellerbrock)');
         done();
       }));
   });
@@ -144,7 +164,12 @@ describe('angular-emoji preset', function() {
     preparing(5);
 
     conventionalChangelogCore({
-      config: preset
+      config: preset({
+        "userUrlFormat": "https://test.com/{{user}}",
+        "issueUrlFormat": "https://test.com/issues/{{id}}",
+        "commitUrlFormat": "https://test.com/commit/{{hash}}",
+        "compareUrlFormat": "https://test.com/compare/{{previousTag}}...{{currentTag}}"
+      }),
     })
       .on('error', function(err) {
         done(err);
@@ -166,7 +191,12 @@ describe('angular-emoji preset', function() {
     preparing(6);
 
     conventionalChangelogCore({
-      config: preset
+      config: preset({
+        "userUrlFormat": "https://test.com/{{user}}",
+        "issueUrlFormat": "https://test.com/issues/{{id}}",
+        "commitUrlFormat": "https://test.com/commit/{{hash}}",
+        "compareUrlFormat": "https://test.com/compare/{{previousTag}}...{{currentTag}}"
+      }),
     })
       .on('error', function(err) {
         done(err);
@@ -175,6 +205,8 @@ describe('angular-emoji preset', function() {
         chunk = chunk.toString();
 
         expect(chunk).to.include('Also works :)');
+
+        console.log(chunk)
 
         done();
       }));
@@ -185,7 +217,12 @@ describe('angular-emoji preset', function() {
     var i = 0;
 
     conventionalChangelogCore({
-      config: preset,
+      config: preset({
+        "userUrlFormat": "https://test.com/{{user}}",
+        "issueUrlFormat": "https://test.com/issues/{{id}}",
+        "commitUrlFormat": "https://test.com/commit/{{hash}}",
+        "compareUrlFormat": "https://test.com/compare/{{previousTag}}...{{currentTag}}"
+      }),
       outputUnreleased: true
     })
       .on('error', function(err) {
@@ -210,7 +247,12 @@ describe('angular-emoji preset', function() {
     var i = 0;
 
     conventionalChangelogCore({
-      config: preset,
+      config: preset({
+        "userUrlFormat": "https://test.com/{{user}}",
+        "issueUrlFormat": "https://test.com/issues/{{id}}",
+        "commitUrlFormat": "https://test.com/commit/{{hash}}",
+        "compareUrlFormat": "https://test.com/compare/{{previousTag}}...{{currentTag}}"
+      }),
       pkg: {
         path: __dirname + '/fixtures/_unknown-host.json'
       }
@@ -221,8 +263,8 @@ describe('angular-emoji preset', function() {
       .pipe(through(function(chunk, enc, cb) {
         chunk = chunk.toString();
 
-        expect(chunk).to.include('(http://unknown/compare');
-        expect(chunk).to.include('](http://unknown/commits/');
+        expect(chunk).to.include('(https://test.com/compare');
+        expect(chunk).to.include('](https://test.com/commit/');
 
         i++;
         cb();
