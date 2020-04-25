@@ -43,7 +43,7 @@
     "jscs": "^3.0.7",
     "jshint": "^2.9.4",
     "mocha": "*",
-    "shelljs": "^0.7.5",
+    "shelljs": "^0.8.4",
     "standard-version": "4.2.0",
     "through2": "^2.0.3"
   },
